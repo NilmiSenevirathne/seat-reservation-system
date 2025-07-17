@@ -1,4 +1,4 @@
-CREATE DATABASE seat_reservation_system;
+CREATE DATABASE IF NOT EXISTS seat_reservation_system;
 
 USE seat_reservation_system;
 
