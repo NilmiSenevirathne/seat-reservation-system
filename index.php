@@ -25,8 +25,8 @@
                 </ul>
         </nav>
         <div class="hero-content">
-            <h1>Hello Interns ! ,</br> Welcome to the Seat Reservation System</h1>
-            <p>Book your seats easily and quickly.</p>
+            <h1> Welcome to </br> Seat Reservation System</h1>
+            <p>Hello Interns !, book your seats easily and quickly.</p>
             <a href="register.php" class="btn">Get Started</a>
         </div>
     </section>
