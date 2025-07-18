@@ -1,30 +1,37 @@
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   height: 100vh;
   display: flex;
+  background: #f5f7fa;
 }
 
+/* Layout Container */
 .container {
   display: flex;
   width: 100%;
   height: 100vh;
 }
 
+/* Left Signup Panel */
 .signup-left {
   flex: 1;
   padding: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: #c0d5ff; /* Light blue shade */
 }
 
 .signup-left h2 {
   margin-bottom: 30px;
   font-size: 28px;
+  color: #333;
 }
 
+/* Form Group */
 .form-group {
   margin-bottom: 20px;
 }
@@ -34,26 +41,41 @@ body {
   margin-bottom: 5px;
   font-size: 14px;
   font-weight: 500;
+  color: #333;
 }
 
+/* Input Fields */
 .form-group input[type="text"],
 .form-group input[type="email"],
-.form-group input[type="password"] {
+.form-group input[type="password"],
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 6px;
+  outline: none;
+  transition: border 0.2s;
 }
 
+.form-group input:focus {
+  border-color: #4c9af8;
+}
+
+/* Checkbox */
 .form-group.checkbox {
   display: flex;
   align-items: center;
+  font-size: 14px;
+  color: #333;
 }
 
 .form-group.checkbox input {
   margin-right: 10px;
 }
 
+/* Button */
 .btn {
   width: 100%;
   background: #4c9af8;
@@ -63,12 +85,14 @@ body {
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
-  background: #2e4a21;
+  background: #357ae8;
 }
 
+/* Separator */
 .separator {
   text-align: center;
   margin: 20px 0;
@@ -76,10 +100,12 @@ body {
 }
 
 .separator span {
-  background: #fff;
+  background: #c0d5ff; /* Match left panel */
   padding: 0 10px;
   position: relative;
   z-index: 1;
+  font-size: 13px;
+  color: #777;
 }
 
 .separator:before {
@@ -89,27 +115,93 @@ body {
   left: 0;
   height: 1px;
   width: 100%;
-  background: #ccc;
+  background: #999;
   z-index: 0;
 }
 
+/* Social Login Buttons */
 .social-login {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .social-btn {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  background: #fff;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
   border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.social-icon i {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.social-btn.google {
+  border: 1px solid #db4437;
+  color: #db4437;
+  background: #fff;
+}
+
+.social-btn.google:hover {
+  background: #f5f5f5;
+}
+
+.social-btn.facebook {
+  background: #3b5998;
+  color: #fff;
+  border: none;
+}
+
+.social-btn.facebook:hover {
+  background: #324b81;
+}
+
+/* Password Toggle Eye Icon */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input[type="password"],
+.password-wrapper input[type="text"] {
+  width: 100%;
+  padding-right: 40px; /* Space for icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  color: #666;
+  font-size: 18px;
+  user-select: none;
+}
+
+/* Signin Link */
 .signin-link {
   margin-top: 20px;
   font-size: 14px;
+  color: #333;
 }
 
 .signin-link a {
@@ -121,12 +213,14 @@ body {
   text-decoration: underline;
 }
 
+/* Right Image Panel */
 .signup-right {
   flex: 3;
   background: url('../assets/signup1.webp') no-repeat center center;
-  background-size:contain;
+  background-size: cover;
 }
 
+/* Alerts */
 .alert {
   margin-top: 20px;
   padding: 12px;
