@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost";
     $username = "root";
-    $password = " ";
+    $password = "";
     $dbname = "seat_reservation_system";
 
     $conn = new mysqli($servername,$username,$password,$dbname);
