@@ -1,44 +1,39 @@
 <?php
-require_once 'config.php';
-require_once 'functions.php';
+define('BASE_URL', 'http://localhost/seat-reservation-system');
 
-// Check if user is logged in
+session_start();
+
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
 }
 
-// Check if user is admin
 function isAdmin() {
     return isLoggedIn() && $_SESSION['role'] === 'admin';
 }
 
-// Check if user is intern
 function isIntern() {
     return isLoggedIn() && $_SESSION['role'] === 'intern';
 }
 
-// Redirect if not logged in
 function requireLogin() {
     if (!isLoggedIn()) {
-        header("Location: " . BASE_URL . "/auth/login.php");
+        header("Location: " . BASE_URL . "/login.php");
         exit();
     }
 }
 
-// Redirect if not admin
 function requireAdmin() {
     requireLogin();
     if (!isAdmin()) {
-        header("Location: " . BASE_URL . "/intern/dashboard.php");
+        header("Location: " . BASE_URL . "/intern/intern_dashboard.php");
         exit();
     }
 }
 
-// Redirect if not intern
 function requireIntern() {
     requireLogin();
     if (!isIntern()) {
-        header("Location: " . BASE_URL . "/admin/dashboard.php");
+        header("Location: " . BASE_URL . "/admin/admin_panel.php");
         exit();
     }
 }

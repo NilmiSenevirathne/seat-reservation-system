@@ -27,3 +27,6 @@ CREATE TABLE reservations (
   FOREIGN KEY (intern_id) REFERENCES users(user_id ),
   FOREIGN KEY (seat_id) REFERENCES seats(seat_id)
 );
+
+
+DESCRIBE users;
