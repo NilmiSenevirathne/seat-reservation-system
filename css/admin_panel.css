@@ -8,7 +8,7 @@
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   display: flex;
-  background: #a2c6ff;
+  background: #d2e5ff;
   color: #333;
 }
 
@@ -145,6 +145,8 @@ header .profile img {
   padding-left: 10px;
   border-left: 3px solid #00796b;
 }
+
+
 
 /* Responsive tweaks */
 @media (max-width: 900px) {

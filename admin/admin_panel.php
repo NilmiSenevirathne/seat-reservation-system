@@ -21,7 +21,7 @@ requireAdmin();
   </div>
   <ul class="menu">
     <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
-    <li><a href="admin_add_seat.php"><i class="fas fa-chair"></i> Add Seat</a></li>
+    <li><a href="admin_manage_seat.php"><i class="fas fa-chair"></i> Manage Seat</a></li>
     <li><a href="admin_reservations.php"><i class="fas fa-calendar-alt"></i> Reservations</a></li>
     <li><a href="admin_assign_seat.php"><i class="fas fa-user-check"></i> Assign Seats</a></li>
     <li><a href="admin_report.php"><i class="fas fa-chart-line"></i> Reports</a></li>
