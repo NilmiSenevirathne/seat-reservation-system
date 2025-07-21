@@ -27,8 +27,8 @@ $userRole = $_SESSION['role'];
 <?php include 'sidebar.php'; ?>
 <?php include 'header.php'; ?>
 
+
 <main class="main-content" id="content">
-  <h2>Welcome, <?= htmlspecialchars($userName) ?>!</h2>
 
   <?php if ($userRole === 'admin'): ?>
     <!-- ADMIN DASHBOARD -->
