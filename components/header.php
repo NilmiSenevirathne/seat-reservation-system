@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include '../includes/db.php'; // Make sure this path is correct
 
 // Default name
@@ -30,17 +30,8 @@ if (isset($_SESSION['user_id'])) {
 <body>
 
 <header class="topbar">
-  <div class="logo">
-    <h1>SeatReserve</h1>
-  </div>
-
-  <div class="search-bar">
-    <input type="text" placeholder="Search..." />
-    <i class="fas fa-search"></i>
-  </div>
-
   <div class="user-info">
-    <span><?= htmlspecialchars($user_name) ?></span>
+    <span>Welcome,<?= htmlspecialchars($user_name) ?></span>
   </div>
 </header>
 
