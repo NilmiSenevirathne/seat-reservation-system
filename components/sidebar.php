@@ -13,10 +13,12 @@ $sidebars = [
     ["href" => "$base_url/login.php", "icon" => "fas fa-sign-out-alt", "text" => "Logout"],
   ],
   'intern' => [
-    ["href" => "$base_url/dashboard.php", "icon" => "fas fa-home", "text" => "Dashboard"],
-    ["href" => "$base_url/manage_tools.php", "icon" => "fas fa-tools", "text" => "Manage Tools"],
-    ["href" => "$base_url/login.php", "icon" => "fas fa-sign-out-alt", "text" => "Logout"],
-  ],
+  ["href" => "$base_url/components/dashboard.php", "icon" => "fas fa-home", "text" => "Dashboard"],
+  ["href" => "$base_url/intern/view_seats.php", "icon" => "fas fa-chair", "text" => "View Seats"],
+  ["href" => "$base_url/intern/my_reservations.php", "icon" => "fas fa-calendar-check", "text" => "My Reservations"],
+  ["href" => "$base_url/login.php", "icon" => "fas fa-sign-out-alt", "text" => "Logout"],
+],
+
 ];
 
 $links = $sidebars[$role] ?? [];
