@@ -37,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param("ss", $seat_num, $location);
             $stmt->execute();
             $stmt->close();
-            $_SESSION['success_message'] = "Seat added successfully!";
+            $_SESSION['success_message'] = " New Seat added successfully!";
         }
-        header("Location: admin_manage_seats.php");
+        header("Location: admin_manage_seat.php");
         exit;
     }
 
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->close();
             $_SESSION['success_message'] = "Seat updated successfully!";
         }
-        header("Location: admin_manage_seats.php");
+        header("Location: admin_manage_seat.php");
         exit;
     }
 }
@@ -68,7 +68,7 @@ if (isset($_GET['delete'])) {
     $stmt->execute();
     $stmt->close();
     $_SESSION['success_message'] = "Seat deleted successfully!";
-    header("Location: admin_manage_seats.php");
+    header("Location: admin_manage_seat.php");
     exit;
 }
 
