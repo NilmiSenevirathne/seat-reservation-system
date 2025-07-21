@@ -1,0 +1,208 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  color: #34495e;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 200px;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #eee;
+  padding: 20px;
+  font-size: 14px;
+}
+.sidebar ul {
+  list-style: none;
+}
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+.sidebar ul li a {
+  color: #6c757d;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sidebar ul li a:hover {
+  color: #5e72e4;
+}
+.sidebar ul li a i {
+  font-size: 18px;
+}
+
+/* Header */
+.topbar {
+  position: fixed;
+  top: 0; left: 200px;
+  right: 0;
+  height: 60px;
+  background: #237bef;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  font-weight: 700;
+}
+.topbar .logo {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: lowercase;
+  color: white;
+}
+.topbar .search-bar {
+  position: relative;
+  flex-grow: 1;
+  max-width: 300px;
+  margin: 0 20px;
+}
+.topbar .search-bar input {
+  width: 100%;
+  padding: 8px 30px 8px 15px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+.topbar .search-bar i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+.topbar .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.topbar .profile-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Main content */
+.main-content {
+  margin-left: 200px;
+  padding: 80px 30px 30px;
+}
+
+/* Dashboard header */
+.main-content h2 {
+  font-weight: 700;
+  color: #32325d;
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.stats-cards {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.card {
+  background: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px -15px rgb(50 50 93 / 0.1);
+  flex: 1;
+  min-width: 180px;
+}
+.card h5 {
+  font-weight: 700;
+  font-size: 12px;
+  color: #8898aa;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.card h3 {
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+.card .percent {
+  font-size: 14px;
+}
+.percent.green {
+  color: #2dce89;
+}
+.percent.red {
+  color: #f5365c;
+}
+.percent span {
+  font-weight: 400;
+  font-size: 12px;
+  color: #8898aa;
+  margin-left: 5px;
+}
+
+/* Charts container */
+.charts-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.chart-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px -15px rgb(50 50 93 / 0.1);
+}
+.large-chart {
+  flex: 3;
+  min-width: 320px;
+}
+.small-chart {
+  flex: 1;
+  min-width: 220px;
+}
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.chart-header .overview {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8898aa;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.chart-header h4 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #32325d;
+}
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12px;
+  color: #32325d;
+  background: #f7fafc;
+}
+.btn.active {
+  background: #5e72e4;
+  color: white;
+}

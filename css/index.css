@@ -66,6 +66,7 @@ nav ul li a:hover {
 }
 
 .hero-content h1 {
+  font-family:'Times New Roman', Times, serif;
   font-size: 48px;
   margin-bottom: 20px;
   line-height: 1.3;
