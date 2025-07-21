@@ -34,25 +34,23 @@ session_start();
 
 <?php
 if (isset($_POST['login'])) {
-  $email = $_POST['email'];
+  $email = $conn->real_escape_string($_POST['email']); // sanitize input
   $password = $_POST['password'];
 
   $sql = "SELECT * FROM users WHERE email='$email'";
   $result = $conn->query($sql);
 
-  if ($result->num_rows === 1) {
+  if ($result && $result->num_rows === 1) {
     $row = $result->fetch_assoc();
 
     if (password_verify($password, $row['password'])) {
+      // Set session variables
       $_SESSION['user_id'] = $row['user_id'];
       $_SESSION['role'] = $row['role'];
-      echo "<script>alert('Login Successful!');</script>";
+      $_SESSION['name'] = $row['name'] ?? ''; // if you have a name field
 
-      if ($row['role'] === 'admin') {
-        echo "<script>window.location.href = 'admin/admin_panel.php';</script>";
-      } else {
-        echo "<script>window.location.href = 'intern/intern_dashboard.php';</script>";
-      }
+      echo "<script>alert('Login Successful!');</script>";
+      echo "<script>window.location.href = 'components/dashboard.php';</script>";  // Redirect to unified dashboard
 
     } else {
       echo "<script>alert('Invalid password.');</script>";
@@ -61,7 +59,6 @@ if (isset($_POST['login'])) {
     echo "<script>alert('User not found.');</script>";
   }
 }
-
 ?>
 
 <script src="js/validation.js"></script>
