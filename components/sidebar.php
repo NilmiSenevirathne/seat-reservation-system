@@ -5,7 +5,7 @@ $sidebars = [
     'admin' => [
         ["href" => "../components/dashboard.php", "icon" => "fas fa-home", "text" => "Dashboard"],
         ["href" => "../admin/admin_manage_seat.php", "icon" => "fas fa-users-cog", "text" => "Manage Seats"],
-        ["href" => "", "icon" => "fas fa-calendar-check", "text" => "Reservations"],
+        ["href" => "../admin/admin_reserve.php", "icon" => "fas fa-calendar-check", "text" => "Reservations"],
         ["href" => "reports.php", "icon" => "fas fa-chart-line", "text" => "Reports"],
         ["href" => "logout.php", "icon" => "fas fa-sign-out-alt", "text" => "Logout"],  
     ],

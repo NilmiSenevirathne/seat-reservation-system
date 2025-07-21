@@ -1,0 +1,190 @@
+/* Reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Main container spacing */
+.admin-container {
+  display: flex;
+  min-height: 50vh; 
+}
+
+.main-wrapper {
+  flex: 1;
+  padding: 2rem;
+}
+
+.main-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.main-header h1 {
+  font-size: 1.8rem;
+  color: #222;
+}
+
+/* Alerts */
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.alert-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Card */
+.content-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #324960;
+  color: #fff;
+  padding: 1rem 1.5rem;
+}
+
+.card-header h2 {
+  font-size: 1.3rem;
+}
+
+.card-actions {
+  font-size: 0.9rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #324960;
+  color: #fff;
+}
+
+thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left; /* Ensure text aligns left on desktop */
+  vertical-align: middle;
+}
+
+tbody tr:hover {
+  background: #f1f5f9;
+}
+
+td a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+/* Status badge */
+td .status {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.canceled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .main-wrapper {
+    padding: 1rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #fff;
+  }
+
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border: none;
+    font-size: 0.95rem;
+    text-align: right; /* Value side aligns right */
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    flex-basis: 50%;
+    text-align: left; /* Label side aligns left */
+    font-weight: 600;
+    color: #555;
+    text-transform: capitalize;
+  }
+
+  tbody td:last-child {
+    justify-content: flex-start;
+  }
+}

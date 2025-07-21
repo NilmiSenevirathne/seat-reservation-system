@@ -1,7 +1,7 @@
 <?php
 define('BASE_URL', 'http://localhost/seat-reservation-system');
 
-session_start();
+
 
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
