@@ -3,6 +3,29 @@ include '../includes/db.php';
 include '../includes/auth.php';
 requireAdmin();
 
+// Function to get next seat number based on location
+function getNextSeatNumber($conn, $location) {
+    $prefixes = [
+        'Window Side' => 'W',
+        'Middle' => 'M',
+        'Front' => 'F',
+        'Back' => 'B'
+    ];
+    
+    $prefix = $prefixes[$location] ?? '';
+    
+    // Get the highest existing number for this location
+    $query = "SELECT MAX(CAST(SUBSTRING(seat_num, 2) AS UNSIGNED)) as max_num 
+              FROM seats 
+              WHERE seat_num LIKE '$prefix%'";
+    $result = $conn->query($query);
+    $row = $result->fetch_assoc();
+    
+    $nextNum = ($row['max_num'] ?? 0) + 1;
+    
+    return $prefix . $nextNum;
+}
+
 // Handle seat operations
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_seat'])) {
@@ -49,6 +72,12 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
+// AJAX endpoint for getting next seat number
+if (isset($_GET['get_next_seat']) && isset($_GET['location'])) {
+    echo json_encode(['seat_num' => getNextSeatNumber($conn, $_GET['location'])]);
+    exit;
+}
+
 // Get all seats
 $result = $conn->query("SELECT * FROM seats ORDER BY seat_id DESC");
 ?>
@@ -61,6 +90,11 @@ $result = $conn->query("SELECT * FROM seats ORDER BY seat_id DESC");
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../css/admin_panel.css">
   <link rel="stylesheet" href="../css/admin_manage_seat.css">
+  <style>
+    .fa-spinner {
+      margin-left: 5px;
+    }
+  </style>
 </head>
 <body>
 
@@ -68,13 +102,9 @@ $result = $conn->query("SELECT * FROM seats ORDER BY seat_id DESC");
 <?php include '../components/sidebar.php'; ?>
 
 <div class="admin-container">
-
-
-
   <!-- Main Content Area -->
   <div class="main-wrapper">
     <!-- Header -->
-    
     <main class="main-content">
       <header class="main-header">
         <h1>Seat Management</h1>
@@ -103,7 +133,6 @@ $result = $conn->query("SELECT * FROM seats ORDER BY seat_id DESC");
           <select id="locationFilter">
             <option value="">All Locations</option>
             <option value="Window Side">Window Side</option>
-            <option value="Aisle Side">Aisle Side</option>
             <option value="Middle">Middle</option>
             <option value="Front">Front</option>
             <option value="Back">Back</option>
@@ -173,20 +202,21 @@ $result = $conn->query("SELECT * FROM seats ORDER BY seat_id DESC");
       <div class="modal-body">
         <form method="POST">
           <div class="form-group">
-            <label for="seat_num"><i class="fas fa-hashtag"></i> Seat Number</label>
-            <input type="text" id="seat_num" name="seat_num" placeholder="e.g., A1, B2, etc." required>
-          </div>
-          <div class="form-group">
             <label for="location"><i class="fas fa-map-marker-alt"></i> Location</label>
             <select id="location" name="location" required>
               <option value="">Select Location</option>
               <option value="Window Side">Window Side</option>
-              <option value="Aisle Side">Aisle Side</option>
               <option value="Middle">Middle</option>
               <option value="Front">Front</option>
               <option value="Back">Back</option>
             </select>
           </div>
+          <div class="form-group">
+            <label for="seat_num"><i class="fas fa-hashtag"></i> Seat Number</label>
+            <input type="text" id="seat_num" name="seat_num" placeholder="e.g., A1, B2, etc." required>
+            <span id="seat_num_loading" style="display:none;"><i class="fas fa-spinner fa-spin"></i></span>
+          </div>
+          
           <div class="form-actions">
             <button type="button" class="btn btn-secondary" onclick="closeAddModal()">Cancel</button>
             <button type="submit" name="add_seat" class="btn btn-primary">
@@ -218,7 +248,6 @@ $result = $conn->query("SELECT * FROM seats ORDER BY seat_id DESC");
             <label for="update_location"><i class="fas fa-map-marker-alt"></i> Location</label>
             <select id="update_location" name="location" required>
               <option value="Window Side">Window Side</option>
-              <option value="Aisle Side">Aisle Side</option>
               <option value="Middle">Middle</option>
               <option value="Front">Front</option>
               <option value="Back">Back</option>
@@ -236,55 +265,6 @@ $result = $conn->query("SELECT * FROM seats ORDER BY seat_id DESC");
   </div>
 </div>
 
-<script>
-// Modal Handling
-document.getElementById('openAddModal').onclick = () => {
-  document.getElementById('addModal').style.display = 'flex';
-};
-
-function closeAddModal() { 
-  document.getElementById('addModal').style.display = 'none'; 
-}
-
-function openUpdateModal(id, seatNum, location) {
-  document.getElementById('update_seat_id').value = id;
-  document.getElementById('update_seat_num').value = seatNum;
-  document.getElementById('update_location').value = location;
-  document.getElementById('updateModal').style.display = 'flex';
-}
-
-function closeUpdateModal() { 
-  document.getElementById('updateModal').style.display = 'none'; 
-}
-
-// Close modals when clicking outside
-window.onclick = function(e) {
-  if (e.target == document.getElementById('addModal')) closeAddModal();
-  if (e.target == document.getElementById('updateModal')) closeUpdateModal();
-};
-
-// Search Functionality
-document.getElementById('searchInput').addEventListener('input', function() {
-  const filter = this.value.toLowerCase();
-  const rows = document.querySelectorAll('#seatsTable tbody tr');
-  
-  rows.forEach(row => {
-    const seatNum = row.cells[1].textContent.toLowerCase();
-    const location = row.cells[2].textContent.toLowerCase();
-    row.style.display = (seatNum.includes(filter) || location.includes(filter)) ? '' : 'none';
-  });
-});
-
-// Location Filter
-document.getElementById('locationFilter').addEventListener('change', function() {
-  const filter = this.value;
-  const rows = document.querySelectorAll('#seatsTable tbody tr');
-  
-  rows.forEach(row => {
-    const location = row.cells[2].textContent;
-    row.style.display = (!filter || location === filter) ? '' : 'none';
-  });
-});
-</script>
+<script src="../js/manage_seat.js"></script>
 </body>
 </html>
