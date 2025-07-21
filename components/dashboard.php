@@ -27,19 +27,7 @@ $_SESSION['role'] = $_SESSION['role'] ?? 'admin';  // For demo purpose
   <?php include 'sidebar.php'; ?>
 
   <!-- Header -->
-  <header class="topbar">
-    
-
-    <div class="search-bar">
-      <input type="text" placeholder="Search..." />
-      <i class="fas fa-search"></i>
-    </div>
-
-    <div class="user-info">
-      <!-- <img src="images/default-user.png" alt="User Pic" class="profile-pic" /> -->
-      <span><?= htmlspecialchars($_SESSION['user_name']) ?></span>
-    </div>
-  </header>
+  <?php include 'header.php'; ?>
 
   <!-- Main Content -->
   <main class="main-content" id="content">

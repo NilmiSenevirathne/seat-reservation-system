@@ -10,92 +10,9 @@ body {
   color: #34495e;
 }
 
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 0; left: 0;
-  width: 200px;
-  height: 100vh;
-  background: #fff;
-  border-right: 1px solid #eee;
-  padding: 20px;
-  font-size: 14px;
-}
-.sidebar ul {
-  list-style: none;
-}
-.sidebar ul li {
-  margin-bottom: 15px;
-}
-.sidebar ul li a {
-  color: #6c757d;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.sidebar ul li a:hover {
-  color: #5e72e4;
-}
-.sidebar ul li a i {
-  font-size: 18px;
-}
-
-/* Header */
-.topbar {
-  position: fixed;
-  top: 0; left: 200px;
-  right: 0;
-  height: 60px;
-  background: #237bef;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  justify-content: space-between;
-  font-weight: 700;
-}
-.topbar .logo {
-  font-size: 22px;
-  font-weight: bold;
-  text-transform: lowercase;
-  color: white;
-}
-.topbar .search-bar {
-  position: relative;
-  flex-grow: 1;
-  max-width: 300px;
-  margin: 0 20px;
-}
-.topbar .search-bar input {
-  width: 100%;
-  padding: 8px 30px 8px 15px;
-  border-radius: 30px;
-  border: none;
-  outline: none;
-}
-.topbar .search-bar i {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #9ca3af;
-}
-.topbar .user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.topbar .profile-pic {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 /* Main content */
 .main-content {
-  margin-left: 200px;
+  margin-left: 300px;
   padding: 80px 30px 30px;
 }
 

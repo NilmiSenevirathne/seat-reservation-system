@@ -1,0 +1,84 @@
+
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 200px;
+    right: 0;
+    height: 60px;
+    background: #237bef;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    font-weight: 700;
+    transition: left 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .sidebar.collapsed + .topbar {
+    left: 0;
+  }
+
+  .logo h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+  }
+
+  .search-bar {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 20px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 8px 30px 8px 15px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.9);
+  }
+
+  .search-bar i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    cursor: pointer;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .profile-pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  @media (max-width: 768px) {
+    .topbar {
+      left: 0;
+      padding: 0 15px;
+    }
+    
+    .search-bar {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    
+    .logo h1 {
+      font-size: 18px;
+    }
+  }
