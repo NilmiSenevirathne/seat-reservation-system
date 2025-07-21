@@ -3,7 +3,7 @@ $role = $_SESSION['role'] ?? 'guest';
 
 $sidebars = [
     'admin' => [
-        ["href" => "dashboard.php", "icon" => "fas fa-home", "text" => "Dashboard"],
+        ["href" => "../components/dashboard.php", "icon" => "fas fa-home", "text" => "Dashboard"],
         ["href" => "../admin/admin_manage_seat.php", "icon" => "fas fa-users-cog", "text" => "Manage Seats"],
         ["href" => "", "icon" => "fas fa-calendar-check", "text" => "Reservations"],
         ["href" => "reports.php", "icon" => "fas fa-chart-line", "text" => "Reports"],
