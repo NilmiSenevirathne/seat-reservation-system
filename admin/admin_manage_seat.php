@@ -103,55 +103,9 @@ $result = $conn->query("SELECT * FROM seats ORDER BY seat_id DESC");
 </head>
 <body>
 <div class="admin-container">
-  <!-- Sidebar Navigation -->
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <h2 class="logo">
-        <i class="fas fa-chair"></i>
-        <span>Seat Reservation System </span>
-      </h2>
-    </div>
-    <nav class="sidebar-nav">
-      <ul>
-        <li>
-          <a href="admin_panel.php">
-            <i class="fas fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li class="active">
-          <a href="admin_manage_seats.php">
-            <i class="fas fa-chair"></i>
-            <span>Manage Seats</span>
-          </a>
-        </li>
-        <li>
-          <a href="admin_reservations.php">
-            <i class="fas fa-calendar-check"></i>
-            <span>Reservations</span>
-          </a>
-        </li>
-        <li>
-          <a href="admin_assign_seat.php">
-            <i class="fas fa-user-tag"></i>
-            <span>Assign Seats</span>
-          </a>
-        </li>
-        <li>
-          <a href="admin_report.php">
-            <i class="fas fa-chart-pie"></i>
-            <span>Reports</span>
-          </a>
-        </li>
-        <li class="logout-link">
-          <a href="../logout.php">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Sign Out</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
+  
+  <!-- Sidebar -->
+  <?php include '../components/sidebar.php'; ?>
 
   <!-- Main Content Area -->
   <main class="main-content">
